@@ -1,9 +1,22 @@
-FROM ubuntu:18.04
+FROM ubuntu:latest
 
-ENV DEBIAN_FRONTEND noninteractive
-
-RUN apt-get update -qqy && apt-get -y upgrade
-RUN apt-get install -y dialog apt-utils build-essential libssl1.0-dev liblz4-dev libpthread-stubs0-dev libssl-dev libsasl2-dev libsasl2-modules libzstd-dev make wget git ca-certificates pkg-config
+RUN apt-get update -qqy
+RUN apt-get -y upgrade
+RUN apt-get install -y dialog
+RUN apt-get install -y apt-utils
+RUN apt-get install -y build-essential
+RUN apt-get install -y libssl1.0-dev
+RUN apt-get install -y liblz4-dev
+RUN apt-get install -y libpthread-stubs0-dev
+RUN apt-get install -y libssl-dev
+RUN apt-get install -y libsasl2-dev
+RUN apt-get install -y libsasl2-modules
+RUN apt-get install -y libzstd-dev
+RUN apt-get install -y make
+RUN apt-get install -y wget
+RUN apt-get install -y git
+RUN apt-get install -y ca-certificates
+RUN apt-get install -y pkg-config
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN git clone https://github.com/edenhill/librdkafka.git && cd librdkafka && ./configure --prefix /usr && make && make install
