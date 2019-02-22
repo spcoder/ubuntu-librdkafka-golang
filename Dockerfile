@@ -15,6 +15,7 @@ RUN apt-get install -y libzstd-dev
 RUN apt-get install -y make
 RUN apt-get install -y wget
 RUN apt-get install -y git
+RUN apt-get install -y grep
 RUN apt-get install -y ca-certificates
 RUN apt-get install -y pkg-config
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
